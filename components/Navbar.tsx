@@ -13,11 +13,11 @@ const Navbar = () => {
       </Link>
       <div className="flex-between gap-5">
         {/* user management */}
-        {/* 
+
         <SignedIn>
           <UserButton />
         </SignedIn>
-        <MobileNav /> */}
+        <MobileNav />
       </div>
     </nav>
   );
