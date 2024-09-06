@@ -1,5 +1,4 @@
-import React from "react";
-
+import MeetingTypeList from "@/components/MeetingTypeList";
 const Home = () => {
   const now = new Date();
   const date = new Intl.DateTimeFormat("en-us", { dateStyle: "full" }).format(now);
@@ -15,6 +14,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <MeetingTypeList />
     </section>
   );
 };
