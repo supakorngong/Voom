@@ -12,9 +12,18 @@ const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 // const userId = "user-id";
 // const token = "authentication-token";
 
+interface User {
+  id: string;
+  username: string;
+  image?: string;
+}
+
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
   const [videoClient, setVideoClient] = useState<StreamVideoClient>();
-  const { user, isLoaded } = useUser();
+
+  const { user, isLoaded } = useUser() as { user: User; isLoaded: boolean };
+
+  const userClerk: User = { id: user?.id, username: user?.username || user?.id, image: user?.image };
 
   useEffect(() => {
     if (!isLoaded || !user) return;
@@ -22,16 +31,13 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
     //only if user here and API key
     const client = new StreamVideoClient({
       apiKey: apiKey,
-      user: {
-        id: user?.id,
-        name: user?.username || user?.id,
-        image: user?.imageUrl,
-      },
+      user: userClerk,
       tokenProvider,
     });
 
     setVideoClient(client);
   }, [user, isLoaded]);
+
   if (!videoClient) return <Loader />;
 
   return <StreamVideo client={videoClient}>{children}</StreamVideo>;
