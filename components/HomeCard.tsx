@@ -18,7 +18,7 @@ const HomeCard = (props: cardProps) => {
       </div>
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold">{props.title}</h1>
-        <p className="text-lg font-normal">{props.title}</p>
+        <p className="text-lg font-normal">{props.description}</p>
       </div>
     </div>
   );
