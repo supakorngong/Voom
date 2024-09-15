@@ -9,8 +9,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { link } from "fs";
 
 const MeetingTypeList = () => {
   const router = useRouter();
@@ -68,7 +66,8 @@ const MeetingTypeList = () => {
       console.log(err);
     }
   };
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetail?.id}`;
+  const meetingLink = `meeting/${callDetail?.id}`;
+  // const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetail?.id}`;
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
