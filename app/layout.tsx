@@ -11,9 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Yoom",
   description: "Video Calling App",
-  icons: {
-    icon: "/icons/logo.svg",
-  },
 };
 
 export default function RootLayout({
@@ -25,7 +22,7 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         layout: {
-          logoImageUrl: "/icons/yoom-logo.svg",
+          logoImageUrl: "icons/yoom-logo.svg",
         },
         variables: {
           colorText: "#fff",
@@ -37,6 +34,9 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
+        <head>
+          <link rel="icon" href="/icons/logo.svg" type="image/svg+xml" />
+        </head>
         <body className={`${inter.className} bg-dark-2`}>
           {children}
           <Toaster />
