@@ -37,7 +37,7 @@ export default function RootLayout({
         <head>
           <link rel="icon" href="/icons/logo.svg" type="image/svg+xml" />
         </head>
-        <body className={`${inter.className} bg-dark-2`}>
+        <body className={`${inter.className} bg-dark-2 `}>
           {children}
           <Toaster />
         </body>

@@ -13,11 +13,13 @@ import { Input } from "./ui/input";
 const MeetingTypeList = () => {
   const router = useRouter();
   const { toast } = useToast();
-  //
+
   const [meetingState, setMeetingState] = useState<"isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined>(undefined);
-  //
+
+  // check user is exist  เเละ initialize stream vedio client
   const { user } = useUser();
   const client = useStreamVideoClient();
+
   const [values, setValues] = useState({ dateTime: new Date(), description: "", link: "" });
   const [callDetail, setCallDetail] = useState<Call>();
 
@@ -33,8 +35,8 @@ const MeetingTypeList = () => {
       }
 
       const id = crypto.randomUUID();
-
-      const call = client.call("default", id);
+      // สร้างออบเจ็กต์ call:
+      const call = client.call("default", id); //ใช้ client (เชื่อมต่อกับ API) เพื่อสร้างหรือเข้าถึงคอลที่มี callType และ callId ที่กำหนดไว้.
 
       if (!call) throw new Error("Failed to create call");
 

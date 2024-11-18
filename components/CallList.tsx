@@ -62,7 +62,9 @@ const CallList = ({ type }: { type: "upcoming" | "recording" | "ended" }) => {
   };
 
   const calls = getCalls();
+
   const noCallsMessage = getNoCallsMessage();
+
   return (
     <div className="grid grid-cols-1 gap-5 xl-grid-cols-2">
       {calls && calls.length > 0 ? (
@@ -82,7 +84,7 @@ const CallList = ({ type }: { type: "upcoming" | "recording" | "ended" }) => {
                 router.push(`/meeting/${(meeting as Call).id}`);
               }
             }}
-            link={type === "recording" ? (meeting as CallRecording).url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`}
+            link={type === "recording" ? (meeting as CallRecording).url : `meeting/${(meeting as Call).id}`}
           />
         ))
       ) : (
