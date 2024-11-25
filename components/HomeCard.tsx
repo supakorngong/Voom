@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-interface cardProps {
+interface CardProps {
   className?: string;
   img: string;
   title: string;
@@ -10,7 +10,7 @@ interface cardProps {
   handleClick?: () => void;
 }
 
-const HomeCard = (props: cardProps) => {
+const HomeCard = (props: CardProps) => {
   return (
     <div className={cn("flex flex-col justify-between px-4 py-6 bg-orange-1 w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer", props.className)} onClick={props.handleClick}>
       <div className="flex-center glass glassmorphism rounded-[10px] size-10">
